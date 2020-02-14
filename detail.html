@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="manifest" href="manifest.json">
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m,n){
+i['moengage_object']=r;t={}; q = function(f){return function(){(i['moengage_q']=i['moengage_q']||[]).push({f:f,a:arguments});};};
+f = ['track_event','add_user_attribute','add_first_name','add_last_name','add_email','add_mobile',
+'add_user_name','add_gender','add_birthday','destroy_session','add_unique_user_id','moe_events','call_web_push','track','location_type_attribute'];
+for(k in f){t[f[k]]=q(f[k]);}
+a=s.createElement(o);m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m);
+i['moe']=i['moe'] || function(){n=arguments[0];return t;}; a.onload=function(){if(n){i[r] = moe(n);}};
+})(window,document,'script','https://cdn.moengage.com/webpush/moe_webSdk.min.latest.js','Moengage');
+
+Moengage = moe({
+app_id:"",
+debug_logs: 0
+});
+Moengage.call_web_push();
+</script>
+</head>
+<body>
+   <div id="container">
+       <p>detail page</p>
+   </div>
+   <div id="mask">
+       <div class="box">
+          <img class="box-img" src="https://img.acadsoc.com.cn/web/lps/lp2019/lp-LHY/img/adv-img4.jpg">
+          <p class="title">您已成功解锁免费学习卡</p>
+          <p class="content">每天十分钟，练就地道口语表达,每天十分钟，练就地道口语表达</p>
+          <div class="btn">
+            <a href="#" class="btn1">开始学习</a>
+            <a href="#" class="btn2">免费领取</a>
+          </div>
+       </div>
+   </div>
+</body>
+</html>
+
+<style>
+
+*{
+  padding: 0;
+  margin: 0;
+}
+
+ #container {
+   width: 100%;
+   height: 100%;
+ }
+
+ #mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, .6);
+    z-index: 99999;
+    font-size: 0;
+ }
+
+ 
+
+ .box {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate3d(-50%,-50%,0);
+   background: #fff;
+   width: 360px;
+   height: 440px;
+   background-image: url('');
+ }
+
+ .box-img { 
+  max-width:200px;
+  display:block;
+  width:50%;
+  margin: 20px auto 20px auto;
+ }
+
+ .title {
+   font-size: 24px;
+   color: rgb(155, 10, 10);
+   padding: 10px;
+   margin: 0 0 0 10px;
+   text-align: center;
+   word-wrap: break-word;
+ }
+
+ .content {
+   font-size: 16px;
+   color: #04cb94;
+   padding: 0;
+   text-align: left;
+   word-wrap: break-word;
+   margin: 10px 15px;
+ }
+
+ .btn {
+   display: flex;
+ }
+
+ .btn1 {
+   width: 300px;
+   height: 40px;
+   line-height: 40px;
+   border-radius: 5px;
+   font-size: 16px;
+   color: #fff;
+   margin: 0 10px;
+   text-decoration: none;
+   text-align: center;
+   background-color: #04cb94;
+ }
+
+ .btn2 {
+   width: 300px;
+   height: 40px;
+   line-height: 40px;
+   border-radius: 5px;
+   font-size: 16px;
+   color: #fff;
+   margin: 0 10px;
+   text-decoration: none;
+   text-align: center;
+   background-color: #04cb94;
+ }
+
+</style>
