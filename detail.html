@@ -23,6 +23,12 @@ debug_logs: 0
 });
 Moengage.call_web_push();
 Moengage.track_event("EVENT_NAME_1");  
+Moengage.track_event("EVENT_NAME_2", {
+    "attribute_1": "value_1",               // string value
+    "attribute_2": 2,                       // numeric value
+    "attribute_3": 3.4,                     // numeric value
+    "attribute_4": new Date(2017, 0, 31),   // datetime value. Example value represents 31 January, 2017. 
+}); 
 </script>
 </head>
 <body>
