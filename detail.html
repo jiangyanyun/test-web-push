@@ -33,6 +33,12 @@
     server_url: 'http://test-syg.datasink.sensorsdata.cn/sa?token=27f1e21b78daf376&project=jiangyanyun'
   });
   sensors.quick('autoTrack');
+  function fn(){
+    var btn = document.createElement('button');
+    btn.innerHTML = "我是追加的btn"
+    btn.className='btn1'
+    document.getElementById('box').appendChild(btn)
+  }
 </script>
 </head>
 <body>
@@ -45,7 +51,7 @@
        </div>
        <textarea class="textarea">这个是textarea标签</textarea>
        <div class="box">
-          <img class="box-img" src="https://img.acadsoc.com.cn/web/lps/lp2019/lp-LHY/img/adv-img4.jpg">
+          <img class="box-img" data-sensors-click  src="https://img.acadsoc.com.cn/web/lps/lp2019/lp-LHY/img/adv-img4.jpg">
           <p class="title">您已成功解锁免费学习卡</p>
           <p class="content">每天十分钟，练就地道口语表达,每天十分钟，练就地道口语表达</p>
           <div class="btn">
@@ -54,16 +60,22 @@
           </div>
        </div>
        <div class="box">
-        <img class="box-img" src="https://img.acadsoc.com.cn/web/lps/lp2019/lp-LHY/img/adv-img4.jpg">
-        <p class="title">您已成功解锁免费学习卡</p>
-        <p class="content">每天十分钟，练就地道口语表达,每天十分钟，练就地道口语表达</p>
-        <div class="btn">
-          <button  class="btn1">开始学习</button>
-          <button class="btn2">免费领取</button>
-        </div>
-     </div>
+          <select style="width: 100%; border:1px solid #ddd" data-sensors-click>
+           <option>苹果</option>
+           <option>橘子</option>
+           <option>李子</option>
+           <option>香蕉</option>
+          </select>
+          
+          <div class="btnBox" id="box">
+             <button class="btn1" onclick="fn()">增加btn</button>
+          </div>
+       </div>
 </body>
 </html>
+
+
+
 
 <style>
 
@@ -109,6 +121,27 @@
   font-size: 14px;
   padding: 20px;
 }
+
+.btnBox {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.btnBox>button {
+   margin: 10px;
+   width: 50%;
+   height: 40px;
+   line-height: 40px;
+   border-radius: 5px;
+   font-size: 16px;
+   color: #fff;
+   text-decoration: none;
+   text-align: center;
+   background-color: #04cb94;
+}
+
+
  .box {
    margin-top: 20px;
    margin-left: 20px;
@@ -118,6 +151,8 @@
    padding: 20px;
    border:1px solid #04cb94;
  }
+
+ 
 
  .box-img { 
   max-width:200px;
