@@ -229,6 +229,7 @@ var popup = (function () {
         }
   
         if (template.isRoot) {
+          style.position = "relative";
           style["z-index"] = 2147483647;
         }
   
