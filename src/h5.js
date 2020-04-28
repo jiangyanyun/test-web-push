@@ -1174,7 +1174,7 @@
         return 0 == r || t + r - ((t + r) % 864e5) < e;
       };
       n.prototype.validTriggerPages = function (t, n) {
-        alert('h5 validTriggerPages');
+        document.getElementById("boxcontent").innerHTML='h5 validTriggerPages';
         return (
           0 <
           d(n.rule.triggerPages, function (n) {
@@ -1247,7 +1247,7 @@
             })
             .map(function (t) {
               e.eventMessageQueue.consume(function (n) {
-                alert('popupWindows')
+                document.getElementById("boxcontent2").innerHTML='popupWindows'
                 e.processEvent(n, t.popupWindows.concat(t.splashs));
               });
             });
@@ -1654,7 +1654,7 @@
       An.call(this, n, "h5", Dn);
     }
     n.prototype.render = function (n) {
-      alert('h5 render');
+      document.getElementById("boxcontent3").innerHTML='h5 render';
       document.body.appendChild(n);
     };
     return n;
