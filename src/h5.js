@@ -695,7 +695,6 @@
           u: S.getU().getOrElse(undefined),
           cs: S.getCs1().getOrElse(undefined),
         };
-        console.log('h5 flatMap',n);
         return S.setUserFlag(n).map(function (n) {
           return t.popupWindows.concat(t.splashs);
         });
@@ -1175,7 +1174,7 @@
         return 0 == r || t + r - ((t + r) % 864e5) < e;
       };
       n.prototype.validTriggerPages = function (t, n) {
-        console.log('h5 validTriggerPages');
+        alert('h5 validTriggerPages');
         return (
           0 <
           d(n.rule.triggerPages, function (n) {
@@ -1248,7 +1247,7 @@
             })
             .map(function (t) {
               e.eventMessageQueue.consume(function (n) {
-                console.log('popupWindows')
+                alert('popupWindows')
                 e.processEvent(n, t.popupWindows.concat(t.splashs));
               });
             });
@@ -1655,7 +1654,7 @@
       An.call(this, n, "h5", Dn);
     }
     n.prototype.render = function (n) {
-      console.log('h5 render');
+      alert('h5 render');
       document.body.appendChild(n);
     };
     return n;

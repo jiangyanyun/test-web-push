@@ -56,6 +56,7 @@
 </script>
 </head>
 <body>
+       <button class="search" id="clear">清空</button>
        <div class="flex"><input type="text" placeholder="请输入搜索内容"> <button class="search">搜索</button></div>
        <div class="aBox">
           <p><a href="">这是一个A标签</a></p>
@@ -88,7 +89,12 @@
 </body>
 </html>
 
-
+<script>
+document.getElementById("clear").addEventListener('click',function(){
+  alert('clear')
+  localStorage.clear();
+})
+</script>
 
 
 <style>
