@@ -1501,7 +1501,7 @@
                 : Sn.plusShowTimes(t.pushMessage)
               ).map(function (n) {
                 t.handlers.trackImp();
-                debugger;
+                document.getElementById("#boxcontent1").innerHTML = 'h5 next run render'
                 s.render(t.anchor);
               })
             : v.successful(null);
