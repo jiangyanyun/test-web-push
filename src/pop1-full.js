@@ -5,6 +5,19 @@ var popup = (function () {
      a:1
   
     };
+
+    
+    var evt = "onorientationchange" in window ? "orientationchange" : "resize";
+	  window.addEventListener(evt,resize,false);
+    function resize(fals) {
+        if(window.orientation == 0 || window.orientation == 180) {
+            alert("竖屏");
+          }else {
+            alert("横屏");
+        }
+    }
+	  resize(true);
+
   
     popup._ = {
       /**
