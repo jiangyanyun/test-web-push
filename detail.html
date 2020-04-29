@@ -25,7 +25,12 @@
   //   gio('track', 'registerSuccess', {'gender':'male', 'age':21});
 
 
-  
+  (function(){
+	window["gio"] = window["gio"] || function(){
+		(window["gio"].q = window["gio"].q || []).push(arguments);
+	}
+	gio('init', 'fakeAccountID');
+ })()
   </script>
   <!-- End GrowingIO Analytics code version: 2.1 -->
   <script>
@@ -60,7 +65,7 @@
 </script>
 </head>
 <body>
-       <button class="search" id="clear">清空1</button>
+       <button class="search" id="clear">清空2</button>
        
        <div class="box" id="boxcontent">
 
