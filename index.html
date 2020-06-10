@@ -75,17 +75,18 @@
 <body>
 <h2>test Page</h2>
 <button id="button">WebClick</button>
-<p id="app">$pageview</p>
-<p id="PayOrder">PayOrder</p>
+<p id="app">清空localstorage</p>
+<p id="PayOrder">触发 listen 事件</p>
+
 <a href="http://localhost:8081/popup/test/index.html">gotoIndex</a>
 </body>
 </html>
 
 <script>
  document.getElementById('app').addEventListener('click',function(){
-   sensors.quick('autoTrack');
+  localStorage.clear();
  })
  document.getElementById('PayOrder').addEventListener('click',function(){
-   sensors.track('PayOrder')
+   sensors.track('listen')
  })
 </script>
