@@ -148,7 +148,7 @@
     boxModel: function (type) {
       return function (val) {
         if (typeof val !== "object") {
-          return val;
+          return type + ":" + val+ ";"; 
         }
         var str = "";
         for (var key in val) {
@@ -861,7 +861,7 @@
 
       // 根节点增加z-index属性
       if (template.isRoot) {
-        template.layout.margin = {"top":"-40px"};
+        template.layout.margin = "auto";
         _.extend(style, {
           position: "relative",
           "z-index": 999999,
@@ -902,6 +902,8 @@
 
       // 合并样式
       _.extend(style, template.layout, template.properties);
+
+      
 
       // 创建子元素
       if (template.subviews && template.subviews.length > 0) {
