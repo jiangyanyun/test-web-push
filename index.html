@@ -110,4 +110,29 @@
  document.getElementById('PayOrder').addEventListener('click',function(){
    sensors.track('listen')
  })
+ function setIsLoad(){
+   
+   var isTop = window.self === window.top;
+   // h5页面
+   if(isTop){
+     if(window.SensorsDataWebJSSDKPlugin.popup.isLoad){
+       return false;
+     }else if(typeof window.SensorsDataWebJSSDKPlugin.popup.isLoad === 'undefined'){
+      window.SensorsDataWebJSSDKPlugin.popup.isLoad = true;
+       return true;
+     }
+   }else {
+   // 内嵌iframe页面
+     if(window.top.SensorsDataWebJSSDKPlugin.popup.isLoad){
+       return false;
+     }else {
+       window.top.SensorsDataWebJSSDKPlugin.popup.isLoad = true;
+       return true;
+     }
+
+   }
+}
+if(setIsLoad()){
+  alert('web push index dialog')
+  }
 </script>
