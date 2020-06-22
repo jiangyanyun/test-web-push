@@ -122,13 +122,18 @@
        return true;
      }
    }else {
-   // 内嵌iframe页面
-     if(window.top.SensorsDataWebJSSDKPlugin.popup.isLoad){
-       return false;
-     }else {
-       window.top.SensorsDataWebJSSDKPlugin.popup.isLoad = true;
-       return true;
+     try {
+       // 内嵌iframe页面
+        if(window.top.SensorsDataWebJSSDKPlugin.popup.isLoad){
+          return false;
+        }else {
+          window.top.SensorsDataWebJSSDKPlugin.popup.isLoad = true;
+          return true;
+        }
+     }catch (e){
+        console.log('非同域名iframe内嵌不能获取父级窗体内容',e)
      }
+    
 
    }
 }
