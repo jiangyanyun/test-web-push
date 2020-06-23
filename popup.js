@@ -728,7 +728,17 @@
 
         that.maskEle.setAttribute('data-sf-mask', true);
         that.maskEle.appendChild(that.containerEle);
-        document.body.appendChild(that.maskEle);
+
+        if( window.self === window.top){
+          document.body.appendChild(that.maskEle);
+        }else {
+          try {
+            window.top.document.body.appendChild(that.maskEle);
+          }catch(e){
+            document.body.appendChild(that.maskEle);
+          }
+        }
+        
         
         // 设置弹框埋点和弹框回调函数
         that.msg.$sf_succeed = true;
@@ -837,6 +847,7 @@
         "box-sizing": "border-box",
         display: "block",
         "pointer-events": "auto",
+        "overflow": "hidden"
       };
       var attr = {};
       var nodeName = NODE_NAME_MAP[template.type] || null;
@@ -954,7 +965,16 @@
      */
     destory: function () {
       var plan_id = this.msg.plan.plan_id || "";
-      document.body.removeChild(this.maskEle);
+      if( window.self === window.top){
+        document.body.removeChild(this.maskEle);
+      }else {
+        try {
+          window.top.document.body.removeChild(this.maskEle);
+        }catch(e){
+          document.body.removeChild(this.maskEle);
+        }
+      }
+     
       popup.info.popup_listener.onClose(plan_id);
       if(this.popupCheckInstance){
         this.popupCheckInstance.resetPopupIntervalWindow();
@@ -1350,6 +1370,34 @@
 
   };
 
+  // 返回true，则表示当前不执行
+  popup.setIsLoad = function(){
+    var isTop = window.self === window.top;
+    // h5页面
+    if(isTop){
+      if(window.SensorsDataWebJSSDKPopupIsLoad){
+        return false;
+      }
+      if(typeof window.SensorsDataWebJSSDKPopupIsLoad === 'undefined'){
+        window.SensorsDataWebJSSDKPopupIsLoad = true;
+        return true;
+      }
+     } else {
+       try {
+         // 内嵌iframe页面
+         if(window.top.SensorsDataWebJSSDKPopupIsLoad){
+           return false;
+         } else {
+           window.top.SensorsDataWebJSSDKPopupIsLoad = true;
+           return true;
+         }
+      } catch (e){
+         popup.log('非同域名iframe内嵌不能获取父级窗体内容',e);
+         return true;
+       }
+     }
+  };
+
   popup.init = function(para){
     // 不支持localStorage的话，再见。
     if(!this.isSupportPopup()){
@@ -1362,6 +1410,11 @@
     if(!this.setPara(para)){
       return false;
     }
+    // h5或者iframe页面已经加载过，则不继续执行
+    if(!this.setIsLoad()){
+      return false;
+    }
+
     if(popup.testSend.hasParam()){
       popup.testSend.start();    
     }else{
@@ -1841,6 +1894,8 @@
     if(popup.isRun){
       return false;
     }
+    salog('事件队列---eventQueue',popup.localData.eventQueue);
+
     var already_displayed = false;
     var eventDate = popup.localData.eventQueue[0];
     var event_properties = eventDate.event_properties;
