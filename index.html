@@ -47,39 +47,40 @@
           server_url: 'http://10.120.108.145:8106/sa?project=default'
         });
        
-        sensors.quick('setPlugin',{
-          popup: function(self){
-            self.init({
-               show_log:true,
-               api_base_url:'http://10.120.152.155:8202/api/v2/',
-               popup_listener: {
-                openlink:'auto',
-                 onClick:function(plan_id,action){
-                   console.log('onClick plan_id',plan_id)
-                   console.log('onClick action',action)
-                   alert(JSON.stringify(action));
-                 },
-                 onLoadSuccess:function(plan_id){
-                  console.log('onLoadSuccess',plan_id)
-                 },
-                 onLoadFailed: function(plan_id,code,message){
-                  console.log('onLoadFailed plan_id', plan_id);
-                  console.log('onLoadFailed code', code);
-                  console.log('onLoadFailed message', message);
-                 },
-                 onClose:function(plan_id){
-                  console.log('onClose',plan_id)
-                 }
-               }
-            })
-          }
-        })
+        // sensors.quick('setPlugin',{
+        //   popup: function(self){
+        //     self.init({
+        //        show_log:true,
+        //        api_base_url:'http://10.120.152.155:8202/api/v2/',
+        //        popup_listener: {
+        //         openlink:'auto',
+        //          onClick:function(plan_id,action){
+        //            console.log('onClick plan_id',plan_id)
+        //            console.log('onClick action',action)
+        //            alert(JSON.stringify(action));
+        //          },
+        //          onLoadSuccess:function(plan_id){
+        //           console.log('onLoadSuccess',plan_id)
+        //          },
+        //          onLoadFailed: function(plan_id,code,message){
+        //           console.log('onLoadFailed plan_id', plan_id);
+        //           console.log('onLoadFailed code', code);
+        //           console.log('onLoadFailed message', message);
+        //          },
+        //          onClose:function(plan_id){
+        //           console.log('onClose',plan_id)
+        //          }
+        //        }
+        //     })
+        //   }
+        // })
         </script>
 </head>
 
 <body>
 <h2>test Page</h2>
 <button id="button">WebClick</button>
+<iframe src="http://jssdk.debugbox.sensorsdata.cn/js/jyy/index.html" width="414px" height="100%"></iframe>
 <div class="box">
     我是一个盒子
 </div>
@@ -99,6 +100,7 @@
 </div>
 
 <a href="http://localhost:8081/popup/test/index.html">gotoIndex</a>
+
 </body>
 </html>
 
